@@ -26,12 +26,36 @@ function addSalesPost(saleObj){
     let saleEmail = document.createElement('h3')
         saleEmail.innerText = saleObj.email
     
-    let salePrice = document.createElement('p')
+    let salePrice = document.createElement('h4')
         salePrice.innerText = `$${saleObj.price}`
     
-    saleCardDiv.append(saleDescriptionH2, saleImg, saleEmail, salePrice)
+    let likeButton = document.createElement("button")
+        likeButton.className = "like-btn"
+        likeButton.innerText = "Like"
+
+    let likesP = document.createElement('p')
+        likesP.innerText = `${saleObj.likes} Likes`
+
+    saleCardDiv.append(saleDescriptionH2, saleImg, saleEmail, salePrice, likesP, likeButton)
     saleCollection.append(saleCardDiv)
+    //event listers where unstable elements are created
+    likeButton.addEventListener("click", function(){
     
+        fetch(`http://localhost:3000/sale/${saleObj.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify({
+            likes: saleObj.likes + 1
+          })
+        })
+          .then(res => res.json())
+          .then(function(updatedSalesObj){
+            saleObj.likes = updatedSalesObj.likes
+            likesP.innerText = `${updatedSalesObj.likes} Likes`
+          })
+    })
 }
 
  
