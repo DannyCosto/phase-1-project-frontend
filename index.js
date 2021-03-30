@@ -36,7 +36,11 @@ function addSalesPost(saleObj){
     let likesP = document.createElement('p')
         likesP.innerText = `${saleObj.likes} Likes`
 
-    saleCardDiv.append(saleDescriptionH2, saleImg, saleEmail, salePrice, likesP, likeButton)
+    let deleteButton = document.createElement('button')
+        deleteButton.className = "delete-btn"
+        deleteButton.innerText = "X Delete post"
+
+    saleCardDiv.append(saleDescriptionH2, saleImg, saleEmail, salePrice, likesP, likeButton, deleteButton)
     saleCollection.append(saleCardDiv)
     //event listers where unstable elements are created
     likeButton.addEventListener("click", function(){
@@ -56,9 +60,14 @@ function addSalesPost(saleObj){
             likesP.innerText = `${updatedSalesObj.likes} Likes`
           })
     })
-}
 
- 
+      deleteButton.addEventListener("click", function(e){
+
+        fetch(`http://localhost:3000/sale/${saleObj.id}`, {
+          method: "DELETE"
+        })
+      })
+  }
  
  // Stable Element Evt Listener on global level
    // Rare for you to do this inside of another event listener
@@ -80,7 +89,8 @@ function addSalesPost(saleObj){
        description: newDescription,
        image: newImage,
        email: newEmail, 
-       price: newPrice
+       price: newPrice,
+       likes:0
       
      })
    })
