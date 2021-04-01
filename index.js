@@ -73,7 +73,6 @@ function addSalesPost(saleObj){
    // Rare for you to do this inside of another event listener
    
  saleForm.addEventListener("submit", function(e){
-   e.preventDefault()
    let newImage = e.target.image.value
    let newEmail = e.target.email.value
    let newPrice = parseInt(e.target.price.value)
