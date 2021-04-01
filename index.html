@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,52 +7,66 @@
     <script defer type="text/javascript" src="index.js"></script>
   </head>
   <body>
-    <div id="top-header">
-        <h1>BCD List</h1>
-    </div>
-    <form class="add-sales-form">
-        <h3>Create a Sales post!</h3>
-        <br />
-        <input
-          type="text"
-          name="image"
-          value=""
-          placeholder="Enter a product's image URL..."
-          class="input-text"
-        />
-        <input
-        type="text"
-        name="description"
-        value=""
-        placeholder="Enter a product's description..."
-        class="input-text"
-        />
-        <br />
-        <input
-        type="text"
-        name="email"
-        value=""
-        placeholder="Enter email..."
-        class="input-text"
-        />
-        <br />
-        <input
-        type="text"
-        name="price"
-        value=""
-        placeholder="Enter a price..."
-        class="input-text"
-        />
-        <br />
-        <input
-          type="submit"
-          name="submit"
-          value="Create New Post"
-          class="submit"
-        />
-      </form>
-
-    <div id="sale-collection"></div>
-  </body>
+    <div class="nav">
+        <div class="div1", id="top-header" >
+          <h1>BCD  List of Items for Sale</h1>
+        </div>
+        
+        <div class="div2">
+          <form class="add-sales-form">
+          <h3 id = "addItem">Have something to sell? Post it below..</h3>
+        </div>        
+        <div class="div3">
+            <ul>
+              <li>
+                <input
+                type="text"
+                name="image"
+                value=""
+                placeholder="Enter a product's image URL..."
+                class="input-text"
+                />
+              </li>
+              <li>
+                <input
+                type="text"
+                name="description"
+                value=""
+                placeholder="Enter a product's description..."
+                class="input-text"
+                />
+              </li>
+              <li>
+                <input
+                type="text"
+                name="email"
+                value=""
+                placeholder="Enter email..."
+                class="input-text"
+                />
+              </li>
+              <li>
+                <input
+                type="text"
+                name="price"
+                value=""
+                placeholder="Enter a price..."
+                class="input-text"
+                />
+              </li>
+          
+              <input
+              type="submit"
+              name="submit"
+              value="Create New Post"
+              class="submit"
+              />
+          </form>        
+          </ul>
+      </div>
+        <div class="div4", id="sale-collection">
+          <ul> </ul>
+        </div>
+      </div>
+    </body>
 </html>
-
