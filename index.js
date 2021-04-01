@@ -61,10 +61,14 @@ function addSalesPost(saleObj){
           })
     })
 
-      deleteButton.addEventListener("click", function(e){
+      deleteButton.addEventListener("click", function(){
 
         fetch(`http://localhost:3000/sale/${saleObj.id}`, {
           method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(function(){
+            saleCardDiv.remove()
         })
       })
   }
